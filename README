@@ -5,12 +5,12 @@
 
 zf-implement: github.com
 
-	Global setup:
-	Download and install Git
+# * Global setup:
+# * Download and install Git
 git config --global user.name "Rudger"
 git config --global user.email rudgergravestein@gmail.com
 	         
-	Next steps:
+# * Next steps:
 mkdir zf-implement
 cd zf-implement
 git init
@@ -20,11 +20,36 @@ git commit -m 'first commit'
 git remote add origin git@github.com:Rud5G/zf-implement.git
 git push origin master
 					       
-	Existing Git Repo?
-cd existing_git_repo
-git remote add origin
-git@github.com:Rud5G/zf-implement.git
-git push origin master
+# * Existing Git Repo?
+# cd existing_git_repo
+# git remote add origin
+# git@github.com:Rud5G/zf-implement.git
+# git push origin master
+
+
+
+# * line-endings
+git config --global core.autocrlf input
+
+# * git-clone and changed
+git config --global core.autocrlf true
+
+# Remove everything from the index
+git rm --cached -r .
+
+# Re-add all the deleted files to the index
+# You should get lots of messages like: "warning: CRLF will be replaced by LF in
+# <file>."
+git diff --cached --name-only -z | xargs -0 git add
+
+# Commit
+git commit -m "Fix CRLF"
+
+# If you're doing this on a Unix/Mac OSX clone then optionally remove
+# the working tree and re-check everything out with the correct line endings.
+git ls-files -z | xargs -0 rm
+git checkout .
+
 
 
 
