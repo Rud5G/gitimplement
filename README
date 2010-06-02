@@ -1,0 +1,30 @@
+
+
+
+
+
+zf-implement: github.com
+
+	Global setup:
+	Download and install Git
+git config --global user.name "Rudger"
+git config --global user.email rudgergravestein@gmail.com
+	         
+	Next steps:
+mkdir zf-implement
+cd zf-implement
+git init
+touch README
+git add README
+git commit -m 'first commit'
+git remote add origin git@github.com:Rud5G/zf-implement.git
+git push origin master
+					       
+	Existing Git Repo?
+cd existing_git_repo
+git remote add origin
+git@github.com:Rud5G/zf-implement.git
+git push origin master
+
+
+
